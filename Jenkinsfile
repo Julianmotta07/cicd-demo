@@ -32,7 +32,7 @@ pipeline {
                         sh '''
                             mvn sonar:sonar \
                                 -Dsonar.projectKey=my-app \
-                                -Dsonar.login=sqp_a576f5bf1985b0f192dde84576d38619b04f18f2
+                                -Dsonar.login=${SONAR_TOKEN}
                         '''
                     }
                 }
