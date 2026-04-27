@@ -41,7 +41,7 @@ pipeline {
 
         stage('Container Security Scan (Trivy)') {
             steps {
-                sh 'trivy image --exit-code 1 --severity CRITICAL mi-app:latest'
+                sh 'trivy image --timeout 20m --skip-version-check --exit-code 1 --severity CRITICAL mi-app:latest'
             }
         }
 
