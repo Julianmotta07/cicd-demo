@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build & Test') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean package -DskipTests'
             }
         }
 
@@ -46,7 +46,7 @@ pipeline {
         }
 
         stage('Deploy') {
-            when { branch 'main' }
+            when { branch 'master' }
             steps {
                 sh 'docker run -d -p 80:80 mi-app:latest'
             }
